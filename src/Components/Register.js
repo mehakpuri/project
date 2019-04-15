@@ -36,6 +36,7 @@ class Register extends React.Component {
           this.setState({fields:fields});
           alert("Form submitted");
       }
+        this.props.history.push("/timeline");
 
     }
 
@@ -51,7 +52,7 @@ class Register extends React.Component {
       }
 
       if (typeof fields["username"] !== "undefined") {
-        if (!fields["username"].match(/^[a-zA-Z ]*$/)) {
+        if (!fields["username"].match(/^[a-zA-Z0-9]*$/)) {
           formIsValid = false;
           errors["username"] = "*Please enter alphabet characters only.";
         }
