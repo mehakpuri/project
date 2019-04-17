@@ -6,6 +6,7 @@ import Home from './Components/Home';
 import Login from './Components/Login';
 import Register from './Components/Register';
 import Timeline from './Components/timeline';
+import Details from './Components/Details';
 import './App.css';
 
 class App extends Component {
@@ -19,6 +20,7 @@ class App extends Component {
                     <Route path='/Login' component={Login} />
                     <Route path='/Register' component={Register} />
                     <Route path='/timeline' component={Timeline} />
+                    <Route path='/Details' component={Details} />
                 </Switch>
                 <Footer />
             </div>

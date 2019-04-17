@@ -34,9 +34,11 @@ class Register extends React.Component {
           fields["mobileno"] = "";
           fields["password"] = "";
           this.setState({fields:fields});
-          alert("Form submitted");
+          alert("Welcome to Websell");
+          
+          this.props.history.push("/timeline");
       }
-        this.props.history.push("/timeline");
+        
 
     }
 

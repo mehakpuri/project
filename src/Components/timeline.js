@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Login from './Login';
 import Comment from './Comment';
 import AddComment from './AddComment';
+import Upload from './Upload';
 import '../App.css';
 
 
@@ -28,7 +29,9 @@ class Timeline extends Component {
             })
         }
     }
-
+    handleDetail = () => {
+         this.props.history.push("/Details");
+    }
     handleClick = (e,param) => {
        //console.log('Clicked', e[0]);
        
@@ -85,66 +88,75 @@ class Timeline extends Component {
        
     render() {
         return (
-            
-            <div className='card card2'>
-            <div className="timeline-page">
-                <h1>Hey there!</h1> <br />
-                <img className="time" src="https://i.imgur.com/5G0SJtn.jpg" alt="oops! not available" />
-                <br />
-                <br />
+        <div className="row">
+            <div className='col s7 offset-s1 card card2'>
+                <div className="timeline-page">
+                     <Upload />
+                    <br />
+                    <Link to='/Details'><img className="time" src="https://i.imgur.com/5G0SJtn.jpg" alt="oops! not available" /></Link>
+                    <br />
+                    <br />
                 
-                <input type="button" value={this.state.img1[2]} className="like" onClick={this.handleClick.bind(this,this.state.img1)} />
-                <span className='like'> {this.state.img1[1]} </span>
+                    <input type="button" value={this.state.img1[2]} className="like" onClick={this.handleClick.bind(this,this.state.img1)} />
+                    <span className='like'> {this.state.img1[1]} </span>
 
-                <input type="button" value="Show Comments" className='like' onClick={this.handleComm}/>
-                {this.state.showComm ? (
-                    <div>
-                        <Comment comments = {this.state.comments}/><br />
+                    <input type="button" value="Show Comments" className='like' onClick={this.handleComm}/>
+                    <input type="button" value="Details" className="like" onClick={this.handleDetail} />
+
+                    {this.state.showComm ? (
+                        <div>
+                            <Comment comments = {this.state.comments}/><br />
                         
-                    </div>) :
-                (null)}
-                <AddComment addComment={this.addComment} /><br /><br />
+                        </div>) :
+                    (null)}
+                    <AddComment addComment={this.addComment} /><br /><br />
                 
-                <br />
-                <br />
-                <img className="time" src="https://i.imgur.com/5G0SJtn.jpg" alt="oops! not available" />
-                <br />
-                <br />
+                    <br />
+                    <br />
+                    <Link to='/Details'><img className="time" src="https://i.imgur.com/5G0SJtn.jpg" alt="oops! not available" /></Link>
+                    <br />
+                    <br />
                 
-                <input type="button" value={this.state.img2[2]} className="like" onClick={this.handleClick.bind(this,this.state.img2)} />
-                <span className="like"> {this.state.img2[1]} </span>
-                <input type="button" value="Show Comments" className='like' onClick={this.handleComm}/>
-                {this.state.showComm ? (
-                    <div>
-                        <Comment comments = {this.state.comments}/><br />
+                    <input type="button" value={this.state.img2[2]} className="like" onClick={this.handleClick.bind(this,this.state.img2)} />
+                    <span className="like"> {this.state.img2[1]} </span>
+                    <input type="button" value="Show Comments" className='like' onClick={this.handleComm}/>
+                    <input type="button" value="Details" className="like" onClick={this.handleDetail} />    
                         
-                    </div>) :
-                (null)}
-                <AddComment addComment={this.addComment} /><br /><br />
-                
-                <br />
-                <br />
-                <img className="time" src="https://i.imgur.com/5G0SJtn.jpg" alt="oops! not available" />
-                <br />
-                <br />
-                
-                <input type="button" value={this.state.img3[2]} className="like" onClick={this.handleClick.bind(this,this.state.img3)} />
-                <span className='like'> {this.state.img3[1]} </span>
-                <input type="button" value="Show Comments" className='like' onClick={this.handleComm}/>
-                {this.state.showComm ? (
-                    <div>
-                        <Comment comments = {this.state.comments}/><br />
+                    {this.state.showComm ? (
+                        <div>
+                            <Comment comments = {this.state.comments}/><br />
                         
-                    </div>) :
-                (null)}
-                <AddComment addComment={this.addComment} /><br /><br />
+                        </div>) :
+                    (null)}
+                    <AddComment addComment={this.addComment} /><br /><br />
                 
-                <br />
-                <br />
+                    <br />
+                    <br />
+                    <Link to='/Details'><img className="time" src="https://i.imgur.com/5G0SJtn.jpg" alt="oops! not available" /></Link>
+                    <br />
+                    <br />
                 
+                    <input type="button" value={this.state.img3[2]} className="like" onClick={this.handleClick.bind(this,this.state.img3)} />
+                    <span className='like'> {this.state.img3[1]} </span>
+                    <input type="button" value="Show Comments" className='like' onClick={this.handleComm}/>
+                    <input type="button" value="Details" className="like" onClick={this.handleDetail} />
+                        
+                    {this.state.showComm ? (
+                        <div>
+                            <Comment comments = {this.state.comments}/><br />
+                        
+                        </div>) :
+                    (null)}
+                    <AddComment addComment={this.addComment} /><br /><br />
+                
+                    <br />
+                    <br />
+                
+                </div>
             </div>
-            </div>
-                
+            
+            
+        </div>
         )
     }
 }
